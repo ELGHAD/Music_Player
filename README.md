@@ -1,130 +1,164 @@
-# 🎶 Java Music Player — Lecteur Audio Console
+# Java Music Player
 
-> Un lecteur audio en ligne de commande, léger et sans dépendances externes, propulsé par l'API native `javax.sound.sampled` de Java.
+A lightweight command-line audio player built with Java, using the standard `javax.sound.sampled` API to play, stop, and replay WAV audio files without third-party dependencies.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-JDK%2017%2B-ED8B00?logo=openjdk&logoColor=white" alt="Java">
-  <img src="https://img.shields.io/badge/API-javax.sound.sampled-blue" alt="javax.sound.sampled">
-  <img src="https://img.shields.io/badge/Interface-Console-black" alt="Console">
-  <img src="https://img.shields.io/badge/Status-Educational-informational" alt="Status">
-  <img src="https://img.shields.io/badge/License-Not%20specified-lightgrey" alt="License">
-</p>
+## Overview
 
----
+**Java Music Player** is a console-based application that demonstrates how Java can interact with audio resources through its built-in sound API. Users control playback through simple keyboard commands, while the application manages the audio clip lifecycle.
 
-## 📌 Aperçu du projet
+The project provides a focused example of core Java development, resource management, and event-driven user interaction in a minimal application.
 
-**Java Music Player** est un lecteur audio minimaliste fonctionnant entièrement en console, développé en Java pur avec la bibliothèque standard `javax.sound.sampled` — sans framework ni dépendance tierce. Il permet de **jouer, arrêter et rejouer** des fichiers `.wav` via des commandes clavier simples, illustrant une manipulation propre des flux audio et de la gestion d'événements en Java.
+## Key Features
 
-Ce projet s'adresse aux **développeurs souhaitant démontrer leur maîtrise des API bas niveau de Java** (audio, threads, I/O) dans un contexte de portfolio technique.
+- **WAV Playback:** Play supported `.wav` audio files.
+- **Playback Control:** Stop playback and replay the audio from the beginning.
+- **Interactive CLI:** Control the application through keyboard commands.
+- **Resource Management:** Work with Java audio clips and their lifecycle.
+- **Zero Third-Party Dependencies:** Use the standard Java sound API.
+- **Lightweight Execution:** Run directly from the Java command line.
 
----
+## Technology Stack
 
-## ✨ Fonctionnalités clés
+| Technology | Purpose |
+|---|---|
+| Java | Application logic and control flow |
+| `javax.sound.sampled` | Audio playback and clip management |
+| Java `Clip` API | Playback control and audio resource handling |
+| Command-line interface | User interaction |
+| JDK 17+ | Development and execution environment |
 
-- ▶️ **Lecture** d'un fichier `.wav`
-- ⏸️ **Arrêt** de la lecture en cours
-- 🔁 **Reprise depuis le début** (replay)
-- ❌ **Sortie propre** du programme
-- 🖥️ Interface console claire et intuitive, pilotée par commandes clavier
+## How It Works
 
----
+The application loads a WAV file, presents the available playback commands, and responds to user input.
 
-## 🏗️ Architecture & Stack Technique
+```text
+User Input
+    |
+    v
+Command-Line Interface
+    |
+    v
+Playback Controller
+    |
+    v
+Java Sound API
+    |
+    v
+WAV Audio Output
+```
 
-| Composant | Technologie | Rôle |
-|---|---|---|
-| **Langage** | Java (JDK 17+) | Logique applicative |
-| **Audio** | `javax.sound.sampled` (API native Java) | Lecture/contrôle des fichiers `.wav` |
-| **Interface** | Console (CLI) | Interaction utilisateur via clavier |
-| **IDE** | IntelliJ IDEA (fichiers `.idea`, `.iml`) | Environnement de développement |
+The application supports the following commands:
 
----
+| Command | Action |
+|---|---|
+| `P` | Play the audio |
+| `S` | Stop playback |
+| `R` | Replay from the beginning |
+| `Q` | Exit the application |
 
-## 🚀 Guide d'installation & Démarrage rapide
+## Getting Started
 
-### Prérequis
-- JDK 17 ou version supérieure supportant `javax.sound.sampled`
-- Un fichier audio au format `.wav`
+### Prerequisites
 
-### 1️⃣ Cloner le projet
+- JDK 17 or later
+- A terminal or command prompt
+- A supported WAV audio file
+- An audio output device
+
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/ELGHAD/Music_Player.git
 cd Music_Player
 ```
 
-### 2️⃣ Placer votre fichier audio
-Déposez votre fichier `.wav` dans le dossier `src/` (ex. `src/A.wav`).
+### 2. Configure the Audio File
 
-### 3️⃣ Vérifier le chemin du fichier dans le code
+Place a WAV file in the `src/` directory. For example:
+
+```text
+src/A.wav
+```
+
+Ensure that the file path in `MusicPlayer.java` matches the location of your audio file:
+
 ```java
 String filePath = "src/A.wav";
 ```
 
-### 4️⃣ Compiler le programme
+### 3. Compile the Application
+
+From the project root, run:
+
 ```bash
-javac MusicPlayer.java
+javac -d out src/MusicPlayer.java
 ```
 
-### 5️⃣ Lancer le lecteur
+### 4. Run the Application
+
 ```bash
-java MusicPlayer
+java -cp out MusicPlayer
 ```
 
-### 🎮 Contrôles disponibles
+If the source file declares a package, adjust the compilation and execution commands accordingly.
 
-| Touche | Action |
-|---|---|
-| `P` | ▶️ Play |
-| `S` | ⏸️ Stop |
-| `R` | 🔁 Replay |
-| `Q` | ❌ Quit |
+## Example Interaction
 
----
+```text
+Welcome to Simple Music Player
 
-## 🧠 Exemple d'exécution
+Audio file loaded successfully!
 
-```
-🎶 Welcome to Simple Music Player 🎶
+Available Controls:
+[P] Play
+[S] Stop
+[R] Replay
+[Q] Quit
 
-✅ Audio file loaded successfully!
-
-🎛️ Available Controls:
-[P] ▶️ Play
-[S] ⏸️ Stop
-[R] 🔁 Replay
-[Q] ❌ Quit
-👉 Enter your choice: P
-▶️ Playing...
+Enter your choice: P
+Playing...
 ```
 
----
+The exact console messages depend on the application's implementation.
 
-## 📁 Structure du projet
+## Project Structure
 
-```
+```text
 Music_Player/
 ├── src/
-│   ├── MusicPlayer.java   # Classe principale : lecture/contrôle audio
-│   └── A.wav              # Fichier audio d'exemple
+│   ├── MusicPlayer.java
+│   └── A.wav
 ├── .gitignore
 └── README.md
 ```
 
----
+## Engineering Concepts Demonstrated
 
-## 🔒 Bonnes pratiques
+This project illustrates several foundational concepts relevant to Java development:
 
-- Utilisation exclusive de l'**API standard Java** (aucune dépendance externe), garantissant portabilité et légèreté.
-- Gestion explicite du cycle de vie du flux audio (`Clip`, `open`, `stop`, `close`).
-- Interface utilisateur simple facilitant la lecture et la maintenance du code.
+- **Core Java:** Control flow, methods, and console input.
+- **API Usage:** Working with the standard Java Sound API.
+- **Resource Lifecycle:** Opening, controlling, stopping, and closing audio resources.
+- **User Interaction:** Mapping console commands to application behavior.
+- **Dependency Management:** Building a small application without external libraries.
 
----
+## Potential Improvements
 
-## 👤 Auteur & Contact
+Possible extensions for a future version include:
+
+- Volume control and playback position tracking.
+- Support for additional audio formats where compatible with the Java Sound API.
+- A graphical interface using JavaFX or Swing.
+- Improved input validation and audio-loading error handling.
+- Automated tests for playback commands and resource cleanup.
+- A more structured design separating the command-line interface from audio playback logic.
+
+These are potential enhancements, not features currently claimed by this version.
+
+## Author
 
 **ELGHAD**
-- GitHub : [@ELGHAD](https://github.com/ELGHAD)
-- Projet : [Music_Player](https://github.com/ELGHAD/Music_Player)
 
-⭐ Si ce projet vous plaît, laissez une étoile ou proposez vos améliorations via une *pull request* !
+- GitHub: https://github.com/ELGHAD
+- Repository: https://github.com/ELGHAD/Music_Player
+
