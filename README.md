@@ -1,5 +1,14 @@
 # Java Music Player
 
+ <p align="left">
+  <img src="https://img.shields.io/badge/Java-JDK%2017%2B-ED8B00?logo=openjdk&logoColor=white" alt="Java JDK 17+" />
+  <img src="https://img.shields.io/badge/Audio-javax.sound.sampled-2563EB" alt="Java Sound API" />
+  <img src="https://img.shields.io/badge/Interface-CLI-374151" alt="Command Line Interface" />
+  <img src="https://img.shields.io/badge/Dependencies-None-16A34A" alt="No Third-Party Dependencies" />
+  <img src="https://img.shields.io/badge/Format-WAV-7C3AED" alt="WAV Audio" />
+  <img src="https://img.shields.io/badge/License-Not%20specified-lightgrey" alt="License not specified" />
+</p>
+
 A lightweight command-line audio player built with Java, using the standard `javax.sound.sampled` API to play, stop, and replay WAV audio files without third-party dependencies.
 
 ## Overview
